@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: show github variable
-        run: echo ${{ pull_request.type }}
+        run: echo ${{ github.event }}
 #      - name: Post Google Chat message
 #        uses: julb/action-post-googlechat-message@v1
 #        with:
