@@ -1,11 +1,15 @@
 name: debug
-on: push
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    types: [ opened, reopened, ready_for_review, closed ]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: show github variable
-        run: echo ${{ github }}
+        run: echo ${{ on.pull_request.type }}
 #      - name: Post Google Chat message
 #        uses: julb/action-post-googlechat-message@v1
 #        with:
