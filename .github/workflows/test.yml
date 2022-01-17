@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: show github variable
         env:
-          COMMIT_VAR: "user " + ${{ github.event.pull_request.user.login }} + " " + ${{ github.event.action }} + " " + ${{ github.event.pull_request.title }}
+          COMMIT_VAR: "${{ github.event.pull_request.user.login }} + " " + ${{ github.event.action }} + " " + ${{ github.event.pull_request.title }}"
         run: |
           echo ${COMMIT_VAR}
           echo ${{ github.event.action }}
