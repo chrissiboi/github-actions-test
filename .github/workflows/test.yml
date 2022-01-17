@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: show github variable
         env:
-          COMMIT_VAR: "asd"
+          COMMIT_VAR: "asd ${{github.event.action}}"
         run: |
           echo ${COMMIT_VAR}
           echo ${{ github.event.action }}
