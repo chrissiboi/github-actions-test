@@ -12,7 +12,8 @@ jobs:
         run: |
           echo ${{ github.event.action }}
           echo ${{ github.event.pull_request.title }}
-          echo ${{ github.event.actor }}
+          echo ${{ github.event.actor.login }}
+          echo ${{ github.event.repo.url }}
 #      - name: Post Google Chat message
 #        uses: julb/action-post-googlechat-message@v1
 #        with:
