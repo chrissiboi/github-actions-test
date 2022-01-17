@@ -1,0 +1,13 @@
+name: debug
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: show github variable
+        run: echo ${{ github }}
+#      - name: Post Google Chat message
+#        uses: julb/action-post-googlechat-message@v1
+#        with:
+#          message: "Hello from Github Action!"
+#          gchat_webhook_url: ${{ secrets.GCHAT_WEBHOOK_URL }}
