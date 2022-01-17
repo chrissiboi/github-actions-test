@@ -1,7 +1,6 @@
 name: debug
 on:
-  push:
-    branches: [ master ]
+  push
   pull_request:
     types: [ opened, reopened, ready_for_review, closed ]
 jobs:
