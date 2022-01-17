@@ -9,12 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: show github variable
+        env:
+          COMMIT_VAR: "asd ${{github.event.action}}"
         run: |
+          echo ${COMMIT_VAR}
           echo ${{ github.event.action }}
           echo ${{ github.event.pull_request.title }}
           echo ${{ github.event.pull_request.url }}
-          echo ${{ github.event.actor.login }}
-          echo ${{ github.event.repo.url }}
+          echo ${{ github.event.pull_request.state }}
+          echo ${{ github.event.pull_request.user.login }}
+          echo ${{ github.event.pull_request.html_url }}
 #      - name: Post Google Chat message
 #        uses: julb/action-post-googlechat-message@v1
 #        with:
