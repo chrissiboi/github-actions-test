@@ -9,4 +9,7 @@ jobs:
       - name: Post Google Chat message
         env:
           COMMIT_VAR: "${{github.event.pull_request.user.login}} ${{ github.event.action }} ${{ github.event.pull_request.title }}. ${{ github.event.pull_request.html_url }}"
-        run: echo ${COMMIT_VAR}
+        uses: julb/action-post-googlechat-message@v1
+        with:
+          message: ${COMMIT_VAR}
+          gchat_webhook_url: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
