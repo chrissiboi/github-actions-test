@@ -1,26 +1,12 @@
-name: debug
+name: google-chat-pull-request
 on:
-  push:
-    branches: [ master, test ]
   pull_request:
-    types: [ opened, reopened, ready_for_review, closed ]
+    types: [ opened, reopened, ready_for_review, labeled, edited, closed ]
 jobs:
-  build:
+  chat:
     runs-on: ubuntu-latest
     steps:
-      - name: show github variable
+      - name: Post Google Chat message
         env:
           COMMIT_VAR: "${{github.event.pull_request.user.login}} ${{ github.event.action }} ${{ github.event.pull_request.title }}. ${{ github.event.pull_request.html_url }}"
-        run: |
-          echo ${COMMIT_VAR}
-          echo ${{ github.event.action }}
-          echo ${{ github.event.pull_request.title }}
-          echo ${{ github.event.pull_request.url }}
-          echo ${{ github.event.pull_request.state }}
-          echo ${{ github.event.pull_request.user.login }}
-          echo ${{ github.event.pull_request.html_url }}
-#      - name: Post Google Chat message
-#        uses: julb/action-post-googlechat-message@v1
-#        with:
-#          message: "Hello from Github Action!"
-#          gchat_webhook_url: ${{ secrets.GCHAT_WEBHOOK_URL }}
+        run: echo ${COMMIT_VAR}
